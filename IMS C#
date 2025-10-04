@@ -1,0 +1,92 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Inventory_management_system
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome To Inventory Management System");
+            String[] n = new string[100];
+            n[0] = "pencil";
+            n[1] = "pen";
+            n[2] = "copy";
+            n[3] = "laptop";
+            n[4] = "computer";
+            while (true)
+            {
+                Console.WriteLine("enter the no According to your query? 1.Add Item \t2.Remove Item \t3.Search Item \t4.Display Item \t5.Exit ");
+                int ch = Convert.ToInt32(Console.ReadLine());
+                if (ch == 1)
+                {
+                    Console.WriteLine("Enter the item name to add");
+                    String v = Console.ReadLine();
+                    for (int i = 0; i < n.Length; i++)
+                    {
+                        if (n[i] == null)
+                        {
+                            n[i] = v;
+                            Console.WriteLine("{0} Added", v);
+                            break;
+                        }
+                    }
+                }
+                else if (ch == 2)
+                {
+                    Console.WriteLine("Enter the item name to remove");
+                    String v = Console.ReadLine();
+                    bool removed = false;
+                    for (int i = 0; i < n.Length; i++)
+                    {
+                        if (n[i] == v)
+                        {
+                            n[i] = null;
+                            removed = true;
+                            Console.WriteLine("{0} Removed", v);
+                            break;
+                        }
+                    }
+                }
+                else if (ch == 3)
+                {
+                    Console.WriteLine("Enter the item name to search");
+                    String v = Console.ReadLine();
+                    bool found = false;
+                    for (int i = 0; i < n.Length; i++)
+                    {
+                        if (n[i] == v)
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (found)
+                        Console.WriteLine("{0} Found", v);
+                    else
+                        Console.WriteLine("{0} Not Found", v);
+                }
+                else if (ch == 4)
+                {
+                    Console.WriteLine("Items in Inventory:");
+                    for (int i = 0; i < n.Length; i++)
+                    {
+                        if (n[i] != null)
+                            Console.WriteLine(n[i]);
+                    }
+                }
+                else if (ch == 5)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Choice");
+                }
+            }
+        }
+    }
+}`  
